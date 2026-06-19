@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "SJARACNe"
+dynamic = ["version"]
+description = "Gene network reverse engineering from big data"
+requires-python = ">=3.7.6"
+
+dependencies = [
+  "pandas>=1.2.3",
+  "numpy>=1.20.1",
+  "scipy>=1.7.3",
+  "cwltool>=3.0.20201117141248",
+]
+
+[project.scripts]
+sjaracne = "SJARACNe.sjaracne:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+exclude = ["contrib", "docs", "tests"]
+
+[tool.setuptools.dynamic]
+version = {attr = "version.__version__"}
